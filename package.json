@@ -41,6 +41,7 @@
 		"@tensorflow/tfjs-core": "^3.9.0",
 		"@tensorflow/tfjs-data": "^3.9.0",
 		"encoding": "^0.1.13",
-		"seedrandom": "~2.4.3"
+		"seedrandom": "~2.4.3",
+		"stream": "^0.0.2"
 	}
 }

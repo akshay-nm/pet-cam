@@ -3,14 +3,14 @@
 	// Load TensorFlow.js. This is required to use coco-ssd model.
 	import '@tensorflow/tfjs';
 	import * as cocoSsd from '@tensorflow-models/coco-ssd';
+	import { tick } from 'svelte';
 	// Grab DOM reference to video element.
 	// const video = document.getElementById('webcamVideo');
 	// Load the model.
 
 	let videoSource = null;
-	let loading = false;
-	let initComplete = false;
 	let isDogInTheScene = false;
+	let loading = false;
 	let predictions;
 
 	const obtainVideoCamera = async () => {
@@ -26,15 +26,15 @@
 			console.log(error);
 		}
 	};
-	const predictWebcam = () => {
+	const predictWebcam = async () => {
 		cocoSsd.load().then((model) => {
 			// detect objects in the image frame.
 			model.detect(videoSource).then((pred) => {
 				//console.log('Predictions: ');
 				predictions = pred;
+				window.requestAnimationFrame(predictWebcam);
 			});
 		});
-		window.requestAnimationFrame(predictWebcam);
 	};
 
 	$: isDogInTheScene = predictions?.filter(

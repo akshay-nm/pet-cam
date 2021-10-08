@@ -2,10 +2,7 @@
 <script>
 	// Load TensorFlow.js. This is required to use coco-ssd model.
 	import '@tensorflow/tfjs';
-	import '@tensorflow/tfjs-backend-cpu';
-	import '@tensorflow/tfjs-backend-webgl';
 	import * as cocoSsd from '@tensorflow-models/coco-ssd';
-	import { afterUpdate } from 'svelte';
 	// Grab DOM reference to video element.
 	// const video = document.getElementById('webcamVideo');
 	// Load the model.
